@@ -1,10 +1,10 @@
 # EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild
 
+_Official Repository for the ICCV 2023 paper [EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild]()_. 
+
+_Authors: Manuel Kaufmann, Jie Song, Chen Guo, Kaiyue Shen, Tianjian Jiang, Chengcheng Tang, Juan Zarate, Otmar Hilliges_
+
 ## [Project Page](https://ait.ethz.ch/emdb) | [Paper]() | [Supplementary]() | [Video]() | [Data](https://emdb.ait.ethz.ch)
-
-Official Repository for the ICCV 2023 paper [*EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild*](). 
-
-_Manuel Kaufmann, Jie Song, Chen Guo, Kaiyue Shen, Tianjian Jiang, Chengcheng Tang, Juan Zarate, Otmar Hilliges_
 
 <img src="https://files.ait.ethz.ch/projects/emdb/assets/teaser.jpg"/> 
 
