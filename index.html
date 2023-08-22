@@ -50,13 +50,14 @@
               Kaiyue Shen<sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://inf.ethz.ch/people/people-atoz/person-detail.MjUwNDAx.TGlzdC8zMDQsLTIxNDE4MTU0NjA=.html">Tianjian Jiang</a><sup>1</sup>,
+              <a href="https://inf.ethz.ch/people/people-atoz/person-detail.MjUwNDAx.TGlzdC8zMDQsLTIxNDE4MTU0NjA=.html">Tianjian Jiang</a><sup>1</sup>
             </span>
+            <br>
             <span class="author-block">
               Chengcheng Tang<sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://ait.ethz.ch/people/jzarate">Juan Zarate</a><sup>1</sup>
+              <a href="https://ait.ethz.ch/people/jzarate">Juan Zárate</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://ait.ethz.ch/people/hilliges">Otmar Hilliges</a><sup>1</sup>
@@ -71,9 +72,8 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">ICCV 2023</span>
-            </span>
           </div>
-<!-- 
+
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
@@ -95,13 +95,22 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://youtu.be/EGi47YeIeGQ"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
                   </span>
                   <span>Video</span>
                 </a>
+              </span>
+              <span class="link-block">
+                <a href="https://emdb.ait.ethz.ch"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
               </span>
               <span class="link-block">
                 <a href="https://github.com/eth-ait/emdb"
@@ -112,7 +121,7 @@
                   <span>Code</span>
                   </a>
               </span>
-            </div> -->
+            </div>
 
           </div>
         </div>
@@ -121,6 +130,200 @@
   </div>
 </section>
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="https://files.ait.ethz.ch/projects/emdb/assets/teaser.jpg"  class="center"/>
+      <h2 class="subtitle has-text-centered">
+        EMDB is a novel dataset that provides accurate SMPL pose and shape parameters including global camera and body trajectories for in-the-wild videos. (left and middle) Challenging example poses taken from EMDB. (right, 1-4) Visualization of global body center trajectory and the corresponding 3D poses projected into the camera view.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present EMDB, the Electromagnetic Database of Global 3D Human Pose and Shape in the Wild. EMDB is a novel dataset that contains high-quality 3D SMPL pose and shape parameters with global body and camera trajectories for in-the-wild videos. We use body-worn, wireless electromagnetic (EM) sensors and a hand-held iPhone to record a total of 58 minutes of motion data, distributed over 81 indoor and outdoor sequences and 10 participants. Together with accurate body poses and shapes, we also provide global camera poses and body root trajectories. To construct EMDB, we propose a multi-stage optimization procedure, which first fits SMPL to the 6-DoF EM measurements and then refines the poses via image observations. To achieve high-quality results, we leverage a neural implicit avatar model to reconstruct detailed human surface geometry and appearance, which allows for improved alignment and smoothness via a dense pixel-level objective. Our evaluations, conducted with a multi-view volumetric capture system, indicate that EMDB has an expected accuracy of 2.3 cm positional and 10.6 degrees angular error, surpassing the accuracy of previous in-the-wild datasets. We evaluate existing state-of-the-art monocular RGB methods for camera-relative and global pose estimation on EMDB.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Method</h2>
+    <img src="https://files.ait.ethz.ch/projects/emdb/assets/method.jpg"  height="250" class="center"/>
+    <p>
+      Method overview. We first scan a subject in minimal clothing with a multi-view volumetric capture system to obtain their reference shape parameters and calibrate subject-specific skin-to-sensor offsets in regular clothing (left). We subsequently fit SMPL to in-the-wild data with a multi-stage optimization pipeline. Stage 1 fits SMPL to the EM measurements in EM-local space leveraging the calibrated body shape and skin-to-sensor offsets. Stage 2 aligns the local fit with the world, by jointly optimizing over 2D keypoints, depth, camera poses, EM measurements, and the output of stage 1. Stage 3 then refines the output of stage 2 by fitting a neural implicit body model with detailed geometry and appearance to the RGB images via a pixel-level supervision signal to boost smoothness and image-to-pose alignment.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="dataset">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Dataset</h2>
+    <p>EMDB contains SMPL poses with global body root and camera trajectories. In the following we show some samples taken from EMDB.</p>
+    <p>To download EMDB, please fill out the <a href="htpps://emdb.ait.ethz.ch">online application form</a>. After approval of your application, you will receive an e-mail with instructions how to download the data.</p>
+
+    <h3 class="title">Camera-Relative Visualizations</h3>
+    <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P8_68_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P8_69_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P8_76_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P4_37_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P3_32_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P1_14_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P0_08_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P0_07_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P5_43_overlay_small.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <h3 class="title">Global Trajectories</h3>
+      <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P5_40_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P6_49_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P9_80_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P8_64_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P7_58_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P6_48_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P7_57_small.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" autoplay controls muted loop height="100%">
+              <source src="http://files.ait.ethz.ch/projects/emdb/assets/P7_56_small.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+</section>
+
+<section class="section" id="Acknowledgments">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgments</h2>
+    <p>
+      We thank Robert Wang, Emre Aksan, Braden Copple, Kevin Harris, Mishael Herrmann, Mark Hogan, Stephen Olsen, Lingling Tao, Christopher Twigg, and Yi Zhao for their support. Thanks to Dean Bakker, Andrew Searle, and Stefan Walter for their help with our infrastructure. Thanks to Marek, developer of record3d, for his help with the app. Thanks to Laura Wülfroth and Deniz Yildiz for their assistance with capture. Thanks to Dario Mylonopoulos for his priceless work on <a href="https://github.com/eth-ait/aitviewer">aitviewer</a> which we used extensively in this work. All visualizations were done with aitviewer. We are grateful to all our participants for their valued contribution to this research. Computations were carried out in part on the ETH Euler cluster.
+    </p>
+
+  </div>
+</section>
+
+<section class="section" id="Contact">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Contact</h2>
+    <p>
+      If you have any questions, please open an issue on <a href="https://github.com/eth-ait/emdb">GitHub</a> or contact <a href="mailto:manuel.kaufmann@inf.ethz.ch">Manuel Kaufmann</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{kaufmann2023emdb,
+      author = {Kaufmann, Manuel and Song, Jie and Guo, Chen and Shen, Kaiyue and Jiang, Tianjian and Tang, Chengcheng and Z{\'a}rate, Juan Jos{\'e} and Hilliges, Otmar},
+      title = {{EMDB}: The {E}lectromagnetic {D}atabase of {G}lobal 3{D} {H}uman {P}ose and {S}hape in the {W}ild},
+      booktitle = {International Conference on Computer Vision (ICCV)},
+      year = {2023}
+      }
+    </code></pre>
+  </div>
+</section>
 
 
 <footer class="footer">

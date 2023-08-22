@@ -144,3 +144,6 @@ visualization/imgui.ini
 export
 preprocessing/raw_data
 preprocessing/romp
+
+.idea/
+imgui.ini
