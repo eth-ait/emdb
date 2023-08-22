@@ -1,10 +1,8 @@
 # EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild
 
-_Official Repository for the ICCV 2023 paper [EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild]()_. 
+_Official Repository for the ICCV 2023 paper [EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild]()_.
 
-_Authors: Manuel Kaufmann, Jie Song, Chen Guo, Kaiyue Shen, Tianjian Jiang, Chengcheng Tang, Juan Zarate, Otmar Hilliges_
-
-## [Project Page](https://ait.ethz.ch/emdb) | [Paper]() | [Supplementary]() | [Video]() | [Data](https://emdb.ait.ethz.ch)
+## [Project Page](https://ait.ethz.ch/emdb) | [Paper](https://files.ait.ethz.ch/projects/emdb/main.pdf) | [Supplementary](https://files.ait.ethz.ch/projects/emdb/supp.pdf) | [Video]() | [Data](https://emdb.ait.ethz.ch)
 
 <img src="https://files.ait.ethz.ch/projects/emdb/assets/teaser.jpg"/> 
 
@@ -14,13 +12,18 @@ To receive access to the data, please fill out the [application form](https://em
 For an overview of how EMDB is structured, please refer to the [dataset overview](dataset.md).
 
 ## Visualization
-We use [aitviewer](https://github.com/eth-ait/aitviewer) to visualize the data.
+We use [aitviewer](https://github.com/eth-ait/aitviewer) to visualize the data. The code was tested with Python 3.8 on Windows 10.
 
 ### Installation
 ```bash
-pip install aitviewer
+conda create -n emdb python=3.8
+pip install aitviewer tabulate
 ```
-This does not automatically install a GPU-version of PyTorch. If your environment already contains it, you should be good to go, otherwise you may wish to install it manually.
+This does not automatically install a GPU-version of PyTorch. If your environment already contains it, you should be good to go, otherwise you may wish to install it manually, e.g. on Windows
+
+```python
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+```
 
 Please also download the SMPL model by following the instructions on the [SMPL-X GitHub page](https://github.com/vchoutas/smplx#downloading-the-model).
 
