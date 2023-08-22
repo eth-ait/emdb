@@ -1,7 +1,12 @@
 # EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild
-_Manuel Kaufmann, Jie Song, Chen Guo, Kaiyue Shen, Tianjian Jiang, Chengcheng Tang, Juan Zarate, Otmar Hilliges, ICCV 2023_
 
 ## [Project Page](https://ait.ethz.ch/emdb) | [Paper]() | [Supplementary]() | [Video]() | [Data](https://emdb.ait.ethz.ch)
+
+Official Repository for the ICCV 2023 paper [*EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild*](). 
+
+_Manuel Kaufmann, Jie Song, Chen Guo, Kaiyue Shen, Tianjian Jiang, Chengcheng Tang, Juan Zarate, Otmar Hilliges_
+
+<img src="https://files.ait.ethz.ch/projects/emdb/assets/teaser.jpg"/> 
 
 ## Dataset
 To receive access to the data, please fill out the [application form](https://emdb.ait.ethz.ch). You will receive an e-mail with more information after your application has been approved.
@@ -19,15 +24,25 @@ This does not automatically install a GPU-version of PyTorch. If your environmen
 
 Please also download the SMPL model by following the instructions on the [SMPL-X GitHub page](https://github.com/vchoutas/smplx#downloading-the-model).
 
-### Usage
-1. Change the `SMPLX_MODELS` variable in `visualize.py` to where you downloaded the SMPL model. This folder should contain a subfolder `smpl` with the respective model files.
-2. Change the `EMDB_ROOT` variable in `visualize.py` to where you extracted the EMDB dataset. This folder should containt subfolders `P0`, `P1`, etc.
-3. Run the following command to visualize a sequence:
+### Setup
+1. Change the `SMPLX_MODELS` variable in `configuration.py` to where you downloaded the SMPL model. This folder should contain a subfolder `smpl` with the respective model files.
+2. Change the `EMDB_ROOT` variable in `configuration.py` to where you extracted the EMDB dataset. This folder should containt subfolders `P0`, `P1`, etc. 
+
+### Visualize EMDB Data
+Run the following command to visualize a sequence. `SUBJECT_ID` refers to the ID Of the participant, i.e. `P0-P9` and `SEQUENCE_ID` is the 2-digit identifier that is prepended to each sequence's name:
+
 ```python
 python visualize.py --subject {SUBJECT_ID} --sequence {SEQUENCE_ID}
 ```
 
 By default, this opens the viewer in the 3D view. You can choose to show the reprojected poses instead by specifying `--view_from_camera`. If you specify `--draw_2d` the 2D keypoints and bounding boxes will be drawn on top of the image. If you pass `--draw_trajectories` the SMPL root and camera trajectories will be drawn in addition.
+
+### Visualize GLAMR
+We provide a script to visualize [GLAMR](https://github.com/NVlabs/GLAMR) results. An example result that reproduces Figure 9 of the main paper is provided in `assets/GLAMR`. To visualize it, run the following command:
+
+```python
+python visualize_GLAMR.py
+```
 
 ## Evaluation
 
@@ -67,12 +82,12 @@ In order to run the evaluations with your own results, follow these steps:
 ## Citation
 If you use this code or data, please cite the following paper:
 ```bibtex
-@inProceedings{kaufmann2023emdb,
-  title={{EMDB}: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild},
-  author={Kaufmann, Manuel and Song, Jie and Guo, Chen and Shen, Kaiyue and Jiang, Tianjian and Tang, Chengcheng and Zarate, Juan and Hilliges, Otmar},
-  booktitle={International Conference on Computer Vision (ICCV)},
-  year={2023}
- }
+@inproceedings{kaufmann2023emdb,
+  author = {Kaufmann, Manuel and Song, Jie and Guo, Chen and Shen, Kaiyue and Jiang, Tianjian and Tang, Chengcheng and Z{\'a}rate, Juan Jos{\'e} and Hilliges, Otmar},
+  title = {{EMDB}: The {E}lectromagnetic {D}atabase of {G}lobal 3{D} {H}uman {P}ose and {S}hape in the {W}ild},
+  booktitle = {International Conference on Computer Vision (ICCV)},
+  year = {2023}
+}
 ```
 
 ## Contact

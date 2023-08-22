@@ -1,7 +1,8 @@
 """
 Copyright (C) 2023  ETH Zurich, Manuel Kaufmann
 
-Script to visualize an example GLAMR result. This reproduces Fig. 9 of the paper.
+Script to visualize an example GLAMR result. This reproduces Fig. 9 of the paper. GLAMR results were obtained using
+the code from https://github.com/NVlabs/GLAMR.
 
 Usage:
   python visualize_GLAMR.py
