@@ -2,7 +2,7 @@
 
 _Official Repository for the ICCV 2023 paper [EMDB: The Electromagnetic Database of Global 3D Human Pose and Shape in the Wild]()_.
 
-## [Project Page](https://ait.ethz.ch/emdb) | [Paper](https://files.ait.ethz.ch/projects/emdb/main.pdf) | [Supplementary](https://files.ait.ethz.ch/projects/emdb/supp.pdf) | [Video]() | [Data](https://emdb.ait.ethz.ch)
+## [Project Page](https://ait.ethz.ch/emdb) | [Paper](https://files.ait.ethz.ch/projects/emdb/main.pdf) | [Supplementary](https://files.ait.ethz.ch/projects/emdb/supp.pdf) | [Video](https://youtu.be/H66-YE4GUHI?feature=shared) | [Data](https://emdb.ait.ethz.ch)
 
 <img src="https://files.ait.ethz.ch/projects/emdb/assets/teaser.jpg"/> 
 
