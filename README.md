@@ -29,7 +29,7 @@ Please also download the SMPL model by following the instructions on the [SMPL-X
 
 ### Setup
 1. Change the `SMPLX_MODELS` variable in `configuration.py` to where you downloaded the SMPL model. This folder should contain a subfolder `smpl` with the respective model files.
-2. Change the `EMDB_ROOT` variable in `configuration.py` to where you extracted the EMDB dataset. This folder should containt subfolders `P0`, `P1`, etc. 
+2. Change the `EMDB_ROOT` variable in `configuration.py` to where you extracted the EMDB dataset. This folder should contain subfolders `P0`, `P1`, etc. 
 
 ### Visualize EMDB Data
 Run the following command to visualize a sequence. `SUBJECT_ID` refers to the ID Of the participant, i.e. `P0-P9` and `SEQUENCE_ID` is the 2-digit identifier that is prepended to each sequence's name:
